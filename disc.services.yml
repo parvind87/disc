@@ -1,0 +1,7 @@
+services:
+  logger.channel.disc:
+    parent: logger.channel_base
+    arguments: ['disc']
+  disc.default:
+    class: Drupal\disc\DefaultService
+    arguments: ['@database', '@string_translation', '@messenger']

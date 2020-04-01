@@ -1,0 +1,5 @@
+name: 'disc'
+type: module
+description: 'Dependency Injection, Services, Containers'
+core: 8.x
+package: 'Custom'

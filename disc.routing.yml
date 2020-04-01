@@ -1,0 +1,15 @@
+
+disc.default_controller_list:
+  path: '/disc/list'
+  defaults:
+    _controller: '\Drupal\disc\Controller\DefaultController::list'
+    _title: 'Members List'
+  requirements:
+    _permission: 'access content'
+disc.add_form:
+  path: '/disc/add'
+  defaults:
+    _form: '\Drupal\disc\Form\AddForm'
+    _title: 'AddForm'
+  requirements:
+    _access: 'TRUE'
