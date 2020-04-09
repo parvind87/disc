@@ -27,10 +27,13 @@ class DefaultService {
   }
   public function load(array $entry = []) {
     // Read all the fields from the disc table.
-    $select = $this->database
-      ->select('disc')
-      // Add all the fields into our select query.
-      ->fields('disc');
+    $select = $this->database->select('disc','m');
+    $select->join('users_field_data', 'u', 'm.uid = u.uid');
+      $select->addField('m', 'id');
+      $select->addField('m', 'name');
+      $select->addField('m', 'email');
+      $select->addField('m', 'address');
+      $select->addField('u', 'name');
 
     // Add each field and value as a condition to this query.
     foreach ($entry as $field => $value) {
