@@ -103,7 +103,7 @@ class AddForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     if ($this->currentUser->isAnonymous()) {
-      $form_state->setError($form['add'], $this->t('You must be logged in to add values to the database.'));
+      $form_state->setError($form, $this->t('You must be logged in to add values to the database.'));
     }
     // Confirm that name is not blank.
      if (empty($form_state->getValue('name'))) {

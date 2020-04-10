@@ -56,5 +56,31 @@ class DefaultService {
     }
     return $return_value ?? NULL;
   }
+    /**
+   * Update an entry in the database.
+   *
+   * @param array $entry
+   *   An array containing all the fields of the item to be updated.
+   *
+   * @return int
+   *   The number of updated rows.
+   */
+  public function update(array $entry) {
+    try {
+      // Connection->update()...->execute() returns the number of rows updated.
+      $count = $this->database->update('disc')
+        ->fields($entry)
+        ->condition('id', $entry['id'])
+        ->execute();
+    }
+    catch (\Exception $e) {
+      $this->messenger()->addMessage(t('Update failed. Message = %message, query= %query', [
+        '%message' => $e->getMessage(),
+        '%query' => $e->query_string,
+      ]
+      ), 'error');
+    }
+    return $count ?? 0;
+  }
 
 }

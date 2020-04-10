@@ -69,6 +69,7 @@ class DefaultController extends ControllerBase {
     }
     $content['table'] = [
       '#type' => 'table',
+      '#attributes' => ['id' => 'disc-members-list'],
       '#header' => $headers,
       '#rows' => $rows,
       '#empty' => $this->t('No entries available.'),

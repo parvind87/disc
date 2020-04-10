@@ -13,3 +13,10 @@ disc.add_form:
     _title: 'AddForm'
   requirements:
     _access: 'TRUE'
+disc.member_update_form:
+  path: '/disc/update'
+  defaults:
+    _form: '\Drupal\disc\Form\MemberUpdateForm'
+    _title: 'MemberUpdateForm'
+  requirements:
+    _access: 'TRUE'
